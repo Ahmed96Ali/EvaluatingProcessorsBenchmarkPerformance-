@@ -1,12 +1,4 @@
-# test mode
-tabletArray = [
-    ['R', 'M', 'Z'],
-    ['E', 'F', 'H', 'I', 'K'],
-    [417, 83, 66, 39449, 772],
-    [244, 70, 153, 35537, 368],
-    [134, 70, 135, 66000, 369]
-]
-
+from asking import Variables
 
 def tableDisplayer(tableArray):
     """
@@ -15,7 +7,7 @@ def tableDisplayer(tableArray):
     """
     print("{:>27}".format('Processor'))
     print("{:<15}".format('Benchmark'), end=""),
-    for item in tabletArray[0]:
+    for item in tableArray[0]:
         print("{:<15}".format(item), end="")
     print('\n')
     i = 2
@@ -40,7 +32,7 @@ def normalizedOfRef(tableArray, ref):
     normalizeRef = [1 for i in range(len(tableArray[1]))]
     normalizeTableArray = tableArray
 
-    for index in range(len(tabletArray[0])):
+    for index in range(len(tableArray[0])):
         index = index + 2
         if index == indexOfArray:
             continue
@@ -151,6 +143,7 @@ def rankMean(tableArray, arraySortted):
 
 
 def main():
+    tabletArray = Variables()
     tableDisplayer(tabletArray)
     normalizedOfRef(tabletArray, input("Please identify the reference processor: "))
     arithmetric = calculateArithmeticMean(tabletArray)
